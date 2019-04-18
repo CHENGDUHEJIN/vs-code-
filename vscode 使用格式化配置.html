@@ -1,0 +1,89 @@
+<!DOCTYPE html><html><head><title>vscode 使用格式化配置</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h3 id="vscode-使用格式化配置">vscode 使用格式化配置</h3>
+
+<h3 id="1插件安装">1、插件安装</h3>
+
+<h5 id="eslintprettier-code-formattervetur">Eslint、Prettier - Code formatter、Vetur</h5>
+
+
+
+<h4 id="2prettierrcjs配置">2、.prettierrc.js配置</h4>
+
+<p>文件夹根目录新建.prettierrc.js文件，文件配置如下 </p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs java"><div class="hljs-line"><span class="hljs-keyword">module</span>.<span class="hljs-keyword">exports</span> = {
+</div><div class="hljs-line">  eslintIntegration: <span class="hljs-keyword">true</span>,
+</div><div class="hljs-line">  <span class="hljs-comment">// 使用单引号</span>
+</div><div class="hljs-line">  singleQuote: <span class="hljs-keyword">true</span>,
+</div><div class="hljs-line">  <span class="hljs-comment">// 结尾不加分号</span>
+</div><div class="hljs-line">  semi: <span class="hljs-keyword">false</span>,
+</div><div class="hljs-line">  <span class="hljs-comment">// js代码中超出后换行</span>
+</div><div class="hljs-line">  printWidth: <span class="hljs-number">100</span>
+</div><div class="hljs-line">}
+</div></code></pre>
+
+<h4 id="3vs-code-setting-配置">3、vs code  setting 配置</h4>
+
+<pre class="prettyprint hljs-dark"><code class="hljs elixir"><div class="hljs-line">{
+</div><div class="hljs-line">  <span class="hljs-regexp">//</span>.vue文件template格式化支持，并使用js-beautify-html插件
+</div><div class="hljs-line">  <span class="hljs-string">"vetur.format.defaultFormatter.html"</span>: <span class="hljs-string">"prettyhtml"</span>,
+</div><div class="hljs-line">  <span class="hljs-regexp">//js</span>-beautify-html格式化配置，属性强制换行
+</div><div class="hljs-line">  /<span class="hljs-regexp">/文档：https:/</span><span class="hljs-regexp">/github.com/beautify</span>-web/js-beautify<span class="hljs-comment">#css--html</span>
+</div><div class="hljs-line">  <span class="hljs-string">"vetur.format.defaultFormatterOptions"</span>: {
+</div><div class="hljs-line">    <span class="hljs-string">"js-beautify-html"</span>: {
+</div><div class="hljs-line">      <span class="hljs-string">"wrap_attributes"</span>: <span class="hljs-string">"force"</span>,
+</div><div class="hljs-line">      <span class="hljs-string">"singleQuote"</span>: <span class="hljs-keyword">true</span>,
+</div><div class="hljs-line">      <span class="hljs-string">"semi"</span>: <span class="hljs-keyword">false</span>
+</div><div class="hljs-line">    },
+</div><div class="hljs-line">    <span class="hljs-string">"prettyhtml"</span>: {
+</div><div class="hljs-line">      <span class="hljs-string">"printWidth"</span>: <span class="hljs-number">100</span>,
+</div><div class="hljs-line">      <span class="hljs-string">"singleQuote"</span>: <span class="hljs-keyword">true</span>,
+</div><div class="hljs-line">      <span class="hljs-string">"wrapAttributes"</span>: <span class="hljs-keyword">false</span>,
+</div><div class="hljs-line">      <span class="hljs-string">"sortAttributes"</span>: <span class="hljs-keyword">false</span>,
+</div><div class="hljs-line">      <span class="hljs-string">"semi"</span>: <span class="hljs-keyword">false</span>
+</div><div class="hljs-line">    },
+</div><div class="hljs-line">    <span class="hljs-string">"prettier"</span>: {
+</div><div class="hljs-line">      <span class="hljs-string">"singleQuote"</span>: <span class="hljs-keyword">true</span>,
+</div><div class="hljs-line">      <span class="hljs-string">"semi"</span>: <span class="hljs-keyword">false</span>,
+</div><div class="hljs-line">      <span class="hljs-string">"eslintIntegration"</span>: <span class="hljs-keyword">true</span>
+</div><div class="hljs-line">    },
+</div><div class="hljs-line">    <span class="hljs-string">"wrap_attributes"</span>: <span class="hljs-string">"force-aligned"</span>
+</div><div class="hljs-line">  },
+</div><div class="hljs-line">  <span class="hljs-regexp">//</span>根据文件后缀名定义vue文件类型
+</div><div class="hljs-line">  <span class="hljs-string">"files.associations"</span>: {
+</div><div class="hljs-line">    <span class="hljs-string">"*.vue"</span>: <span class="hljs-string">"vue"</span>
+</div><div class="hljs-line">  },
+</div><div class="hljs-line">  <span class="hljs-regexp">//</span>保存时eslint自动修复错误
+</div><div class="hljs-line">  <span class="hljs-string">"eslint.validate"</span>: [
+</div><div class="hljs-line">    <span class="hljs-string">"javascript"</span>,
+</div><div class="hljs-line">    <span class="hljs-string">"javascriptreact"</span>,
+</div><div class="hljs-line">    {
+</div><div class="hljs-line">      <span class="hljs-string">"language"</span>: <span class="hljs-string">"vue"</span>,
+</div><div class="hljs-line">      <span class="hljs-string">"autoFix"</span>: <span class="hljs-keyword">true</span>
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">  ],
+</div><div class="hljs-line">  <span class="hljs-string">"eslint.autoFixOnSave"</span>: <span class="hljs-keyword">true</span>,
+</div><div class="hljs-line">  <span class="hljs-string">"[jsonc]"</span>: {
+</div><div class="hljs-line">    <span class="hljs-string">"editor.defaultFormatter"</span>: <span class="hljs-string">"esbenp.prettier-vscode"</span>
+</div><div class="hljs-line">  },
+</div><div class="hljs-line">  <span class="hljs-string">"[javascript]"</span>: {
+</div><div class="hljs-line">    <span class="hljs-string">"editor.defaultFormatter"</span>: <span class="hljs-string">"esbenp.prettier-vscode"</span>
+</div><div class="hljs-line">  },
+</div><div class="hljs-line">  <span class="hljs-string">"vetur.validation.template"</span>: <span class="hljs-keyword">false</span>,
+</div><div class="hljs-line">  <span class="hljs-string">"[html]"</span>: {
+</div><div class="hljs-line">    <span class="hljs-string">"editor.defaultFormatter"</span>: <span class="hljs-string">"esbenp.prettier-vscode"</span>
+</div><div class="hljs-line">  }
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">JS使用规范为文尾不要空格、分号、使用单引号
+</div></code></pre>
+
+<h4 id="4编辑规范">4、编辑规范</h4>
+
+<p>class命名使用 a-b-c书写方式 <br>
+函数命名  使用驼峰命名  </p></div></body></html>
